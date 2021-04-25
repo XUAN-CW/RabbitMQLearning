@@ -1,5 +1,6 @@
 package com.example.producer;
 
+import com.example.producer.config.FanoutMQConfig;
 import com.example.producer.config.RabbitMqConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -23,5 +24,11 @@ class ProducerApplicationTests {
 		for (int i = 0; i < 10; i++) {
 			rabbitTemplate.convertAndSend("work", "worker 模型"+i);
 		}
+	}
+
+	@Test
+	void PublishOrSubscribe(){
+		rabbitTemplate.convertAndSend(FanoutMQConfig.FANOUT_EXCHANGE_NAME, "", "Publish/Subscribe");
+
 	}
 }
