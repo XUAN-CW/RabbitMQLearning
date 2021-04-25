@@ -1,5 +1,6 @@
 package com.example.producer;
 
+import com.example.producer.config.DirectMQConfig;
 import com.example.producer.config.FanoutMQConfig;
 import com.example.producer.config.RabbitMqConfig;
 import com.example.producer.config.TopicMQConfig;
@@ -43,6 +44,12 @@ class ProducerApplicationTests {
 			rabbitTemplate.convertAndSend(TopicMQConfig.TOPIC_EXCHANGE_NAME, TopicMQConfig.FOOTBALL_TOPIC_QUEUE_NAME, "FOOTBALL_TOPIC_QUEUE_NAME"+i);
 
 		}
+	}
+
+	@Test
+	void d(){
+		rabbitTemplate.convertAndSend(DirectMQConfig.DIRECT_EXCHANGE_NAME, DirectMQConfig.DIRECT_ROUTING_KEY_NAME, "DIRECT_ROUTING_KEY_NAME");
+
 	}
 
 }

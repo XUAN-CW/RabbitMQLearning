@@ -1,11 +1,14 @@
 package com.example.consumer.listener;
 
+import com.example.consumer.config.DirectMQConfig;
 import com.example.consumer.config.FanoutMQConfig;
 import com.example.consumer.config.TopicMQConfig;
 import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 @Component
 public class ConsumerListener {
@@ -60,6 +63,13 @@ public class ConsumerListener {
     @RabbitHandler
     public void bookReceiveMessage(String message) {
         System.out.println("bookReceiveMessage:"+message);
+    }
+
+    ////////////////////////////////////////////////////
+    @RabbitListener(queues = {DirectMQConfig.DIRECT_QUEUE_NAME})
+    @RabbitHandler
+    public void receiveMessage(String message) {
+        System.out.println("DIRECT_QUEUE_NAME:"+message);
     }
 }
 
