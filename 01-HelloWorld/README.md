@@ -143,3 +143,48 @@ server:
 
 ![image-20210425141346317](image/image-20210425141346317.png)
 
+
+
+#  [Work queues](https://www.rabbitmq.com/tutorials/tutorial-two-python.html) 
+
+ [ConsumerListener.java](code\consumer\src\main\java\com\example\consumer\listener\ConsumerListener.java) 
+
+```java
+
+    // worker 模型默认公平模型~
+    @RabbitListener(queuesToDeclare=@Queue(value = "work"))
+    private void receiveMsgWork1(String msg){
+        System.out.println("worker_1:"+msg);
+    }
+
+    @RabbitListener(queuesToDeclare=@Queue(value = "work"))
+    private void receiveMsgWork2(String msg){
+        System.out.println("worker_2:"+msg);
+    }
+```
+
+ [ProducerApplicationTests.java](code\producer\src\test\java\com\example\producer\ProducerApplicationTests.java) 
+
+```java
+	@Test// worke queues 模型
+	void test_work_queue() {
+		for (int i = 0; i < 10; i++) {
+			rabbitTemplate.convertAndSend("work", "worker 模型"+i);
+		}
+	}
+```
+
+#  [Publish/Subscribe](https://www.rabbitmq.com/tutorials/tutorial-three-python.html) 
+
+
+
+
+
+
+
+
+
+
+
+
+

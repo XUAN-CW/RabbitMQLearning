@@ -17,5 +17,11 @@ class ProducerApplicationTests {
 	public void simpleTest(){
 		rabbitTemplate.convertAndSend(RabbitMqConfig.SIMPLE_EXCHANGE_NAME,"","simple");
 	}
-
+	
+	@Test// worke queues 模型
+	void test_work_queue() {
+		for (int i = 0; i < 10; i++) {
+			rabbitTemplate.convertAndSend("work", "worker 模型"+i);
+		}
+	}
 }
