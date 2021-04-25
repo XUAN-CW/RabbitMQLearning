@@ -1,6 +1,7 @@
 package com.example.consumer.listener;
 
 import com.example.consumer.config.FanoutMQConfig;
+import com.example.consumer.config.TopicMQConfig;
 import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -40,6 +41,25 @@ public class ConsumerListener {
     @RabbitHandler
     public void secondReceiveMessage(String message) {
         System.out.println("secondReceiveMessage:"+message);
+    }
+    //////////////////////////////////////////////
+
+    @RabbitListener(queues = {TopicMQConfig.BASKETBALL_TOPIC_QUEUE_NAME})
+    @RabbitHandler
+    public void basketballReceiveMessage(String message) {
+        System.out.println("basketballReceiveMessage:"+message);
+    }
+
+    @RabbitListener(queues = {TopicMQConfig.FOOTBALL_TOPIC_QUEUE_NAME})
+    @RabbitHandler
+    public void footballReceiveMessage(String message) {
+        System.out.println("footballReceiveMessage:"+message);
+    }
+
+    @RabbitListener(queues = {TopicMQConfig.BOOK_TOPIC_QUEUE_NAME})
+    @RabbitHandler
+    public void bookReceiveMessage(String message) {
+        System.out.println("bookReceiveMessage:"+message);
     }
 }
 
