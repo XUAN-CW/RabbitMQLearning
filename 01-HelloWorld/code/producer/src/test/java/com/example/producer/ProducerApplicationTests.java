@@ -49,7 +49,6 @@ class ProducerApplicationTests {
 	@Test
 	void d(){
 		rabbitTemplate.convertAndSend(DirectMQConfig.DIRECT_EXCHANGE_NAME, DirectMQConfig.DIRECT_ROUTING_KEY_NAME, "DIRECT_ROUTING_KEY_NAME");
-
 	}
 
 }
