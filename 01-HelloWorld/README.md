@@ -61,10 +61,6 @@ docker run -dit --name Myrabbitmq -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEF
 		</dependency>
 ```
 
-### 编写配置类
-
- [RabbitMqConfig.java](code\producer\src\main\java\com\example\producer\config\RabbitMqConfig.java) 
-
 ### 编写配置文件
 
  [application.yml](code\producer\src\main\resources\application.yml) 
@@ -81,6 +77,10 @@ server:
   port: 随便选一个，但记得要与 `consumer` 不同
 
 ```
+
+### 编写配置类
+
+ [RabbitMqConfig.java](code\producer\src\main\java\com\example\producer\config\RabbitMqConfig.java) 
 
 ### 测试
 
@@ -105,5 +105,41 @@ server:
 
 ![image-20210425134009956](image/image-20210425134009956.png)
 
+## consumer
 
+### 导入坐标
+
+ [pom.xml](code\consumer\pom.xml) 
+
+```xml
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+```
+
+### 编写配置文件
+
+ [application.yml](code\consumer\src\main\resources\application.yml) 
+
+### 编写配置类
+
+ [RabbitMqConfig.java](code\consumer\src\main\java\com\example\consumer\config\RabbitMqConfig.java) 
+
+### 编写 Listener
+
+ [ConsumerListener.java](code\consumer\src\main\java\com\example\consumer\listener\ConsumerListener.java) 
+
+### 测试
+
+启动 [ConsumerApplication.java](..\..\..\..\..\学习\2-消息中间件RabbitMQ\代码\rabbitmq\rabbitmq\springboot-rabbitmq-consumer\src\main\java\com\itheima\rabbitmq\ConsumerApplication.java) 
+
+#### 效果
+
+- 控制台：收到了队列 **simple_queue** 里的消息 `simple`
+- 管理界面：原来 **producer** 发送到队列 **simple_queue** 的消息被消费掉了，再点击 **Get Message(s)** 会显示 **Queue is empty** 
+
+![image-20210425140911841](image/image-20210425140911841.png)
+
+![image-20210425141346317](image/image-20210425141346317.png)
 
