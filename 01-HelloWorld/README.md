@@ -48,4 +48,62 @@ docker run -dit --name Myrabbitmq -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEF
 
 ![image-20210425123335676](image/image-20210425123335676.png)
 
+## producer
+
+### 导入坐标
+
+ [pom.xml](code\producer\pom.xml) 
+
+```xml
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+```
+
+### 编写配置类
+
+ [RabbitMqConfig.java](code\producer\src\main\java\com\example\producer\config\RabbitMqConfig.java) 
+
+### 编写配置文件
+
+ [application.yml](code\producer\src\main\resources\application.yml) 
+
+```yml
+spring:
+  rabbitmq:
+    host: 你的主机 IP 地址
+    port: 5672
+    virtual-host: 你的虚拟主机,rabbitmq 默认为 `/`
+    username: 你的密码,rabbitmq 默认为 `guest`
+    password: 你的密码,rabbitmq 默认为 `guest`
+server:
+  port: 随便选一个，但记得要与 `consumer` 不同
+
+```
+
+### 测试
+
+ [ProducerApplicationTests.java](code\producer\src\test\java\com\example\producer\ProducerApplicationTests.java) 
+
+```java
+	@Resource
+	private RabbitTemplate rabbitTemplate;
+
+	@Test
+	public void simpleTest(){
+		rabbitTemplate.convertAndSend(RabbitMqConfig.SIMPLE_EXCHANGE_NAME,"","simple");
+	}
+```
+
+#### 效果
+
+1. 在 **Queues** 下可见 `simple_queue` 
+2. 点击 `simple_queue` 进入其相关页面。点击展开 **Get messages** ，再点击 **Get Message(s)** 按钮，在 **Payload** 下可见 Java 程序发生送的消息 `simple` 
+
+![image-20210425133653452](image/image-20210425133653452.png)
+
+![image-20210425134009956](image/image-20210425134009956.png)
+
+
 
