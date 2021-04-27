@@ -28,33 +28,4 @@ public class FanoutMQConfig {
      */
     public static final String FANOUT_EXCHANGE_NAME = "com.xjm.mq.fanout.exchange";
 
-//    /**
-//     * FanoutExchange,持久化、非自动删除
-//     *
-//     * @return
-//     */
-//    @Bean
-//    public FanoutExchange fanoutExchange() {
-//        return new FanoutExchange(FANOUT_EXCHANGE_NAME);
-//    }
-//
-//    @Bean
-//    public Queue firstFanoutQueue() {
-//        return new Queue(FIRST_FANOUT_QUEUE_NAME);
-//    }
-//
-//    @Bean
-//    public Queue secondFanoutQueue() {
-//        return new Queue(SECOND_FANOUT_QUEUE_NAME);
-//    }
-//
-//    @Bean
-//    public Binding firstFanoutBinding() {
-//        return BindingBuilder.bind(firstFanoutQueue()).to(fanoutExchange());
-//    }
-//
-//    @Bean
-//    public Binding secondFanoutBinding() {
-//        return BindingBuilder.bind(secondFanoutQueue()).to(fanoutExchange());
-//    }
 }

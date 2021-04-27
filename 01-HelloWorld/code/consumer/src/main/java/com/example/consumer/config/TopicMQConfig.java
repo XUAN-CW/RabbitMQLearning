@@ -37,40 +37,5 @@ public class TopicMQConfig {
      * 读书主题
      */
     public static final String BOOK_TOPIC = "topic.book.#";
-
-//    @Bean
-//    public TopicExchange topicExchange() {
-//        return new TopicExchange(TOPIC_EXCHANGE_NAME);
-//    }
-//
-//    @Bean
-//    public Queue basketBallQueue() {
-//        return new Queue(BASKETBALL_TOPIC_QUEUE_NAME);
-//    }
-//
-//    @Bean
-//    public Queue footBallQueue() {
-//        return new Queue(FOOTBALL_TOPIC_QUEUE_NAME);
-//    }
-//
-//    @Bean
-//    public Queue bookQueue() {
-//        return new Queue(BOOK_TOPIC_QUEUE_NAME);
-//    }
-//
-//    @Bean
-//    public Binding basketBallBinding() {
-//        return BindingBuilder.bind(basketBallQueue()).to(topicExchange()).with(SPORTS_TOPIC);
-//    }
-//
-//    @Bean
-//    public Binding footBallBinding() {
-//        return BindingBuilder.bind(footBallQueue()).to(topicExchange()).with(SPORTS_TOPIC);
-//    }
-//
-//    @Bean
-//    public Binding bookBinding() {
-//        return BindingBuilder.bind(bookQueue()).to(topicExchange()).with(BOOK_TOPIC);
-//    }
 }
 
