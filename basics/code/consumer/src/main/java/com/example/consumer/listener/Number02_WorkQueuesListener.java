@@ -17,12 +17,12 @@ import org.springframework.stereotype.Component;
 public class Number02_WorkQueuesListener {
 
     // worker 模型默认公平模型
-    @RabbitListener(queuesToDeclare=@Queue(value = Number02_WorkQueuesConstant.WORK_QUEUES_QUEUE_NAME))
+    @RabbitListener(queuesToDeclare=@Queue(value = Number02_WorkQueuesConstant.WORK_QUEUES_QUEUE))
     private void receiveMsgWork1(String msg){
         System.out.println("worker_1:"+msg);
     }
 
-    @RabbitListener(queuesToDeclare=@Queue(value = Number02_WorkQueuesConstant.WORK_QUEUES_QUEUE_NAME))
+    @RabbitListener(queuesToDeclare=@Queue(value = Number02_WorkQueuesConstant.WORK_QUEUES_QUEUE))
     private void receiveMsgWork2(String msg){
         System.out.println("worker_2:"+msg);
     }

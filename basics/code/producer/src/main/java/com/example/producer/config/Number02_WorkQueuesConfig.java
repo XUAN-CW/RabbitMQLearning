@@ -2,7 +2,6 @@ package com.example.producer.config;
 
 import com.example.producer.constant.Number02_WorkQueuesConstant;
 import org.springframework.amqp.core.*;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,7 +21,7 @@ public class Number02_WorkQueuesConfig {
      */
     @Bean
     public Exchange workQueuesExchange(){
-        return ExchangeBuilder.topicExchange(Number02_WorkQueuesConstant.WORK_QUEUES_EXCHANGE_NAME).build();
+        return ExchangeBuilder.topicExchange(Number02_WorkQueuesConstant.WORK_QUEUES_EXCHANGE).build();
     }
 
     /**
@@ -31,7 +30,7 @@ public class Number02_WorkQueuesConfig {
      */
     @Bean
     public Queue workQueuesQueue(){
-        return QueueBuilder.durable(Number02_WorkQueuesConstant.WORK_QUEUES_QUEUE_NAME).build();
+        return QueueBuilder.durable(Number02_WorkQueuesConstant.WORK_QUEUES_QUEUE).build();
     }
 
     /**

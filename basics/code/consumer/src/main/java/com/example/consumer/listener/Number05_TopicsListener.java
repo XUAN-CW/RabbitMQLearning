@@ -15,22 +15,28 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Number05_TopicsListener {
 
-    @RabbitListener(queues = {Number05_TopicsConstant.BASKETBALL_TOPIC_QUEUE_NAME})
+    @RabbitListener(queues = {Number05_TopicsConstant.TOPIC_BOOKS_CHINESE})
     @RabbitHandler
     public void basketballReceiveMessage(String message) {
-        System.out.println("basketballReceiveMessage:"+message);
+        System.out.println(Number05_TopicsConstant.TOPIC_BOOKS_CHINESE+message);
     }
 
-    @RabbitListener(queues = {Number05_TopicsConstant.FOOTBALL_TOPIC_QUEUE_NAME})
+    @RabbitListener(queues = {Number05_TopicsConstant.TOPIC_BOOKS_ENGLISH})
     @RabbitHandler
     public void footballReceiveMessage(String message) {
-        System.out.println("footballReceiveMessage:"+message);
+        System.out.println(Number05_TopicsConstant.TOPIC_BOOKS_ENGLISH+message);
     }
 
-    @RabbitListener(queues = {Number05_TopicsConstant.BOOK_TOPIC_QUEUE_NAME})
+    @RabbitListener(queues = {Number05_TopicsConstant.TOPIC_SPORTS_BASKETBALL})
     @RabbitHandler
     public void bookReceiveMessage(String message) {
-        System.out.println("bookReceiveMessage:"+message);
+        System.out.println(Number05_TopicsConstant.TOPIC_SPORTS_BASKETBALL+message);
+    }
+
+    @RabbitListener(queues = {Number05_TopicsConstant.TOPIC_SPORTS_FOOTBALL})
+    @RabbitHandler
+    public void bookReceiveMessage2(String message) {
+        System.out.println(Number05_TopicsConstant.TOPIC_SPORTS_FOOTBALL+message);
     }
 
 }

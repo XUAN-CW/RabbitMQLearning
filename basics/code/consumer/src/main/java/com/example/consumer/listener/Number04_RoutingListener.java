@@ -14,9 +14,15 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Number04_RoutingListener {
-    @RabbitListener(queues = {Number04_RoutingConstant.DIRECT_QUEUE_NAME})
+    @RabbitListener(queues = {Number04_RoutingConstant.ROUTING_QUEUE_01})
     @RabbitHandler
     public void receiveMessage(String message) {
-        System.out.println("DIRECT_QUEUE_NAME:"+message);
+        System.out.println(Number04_RoutingConstant.ROUTING_QUEUE_02+message);
+    }
+
+    @RabbitListener(queues = {Number04_RoutingConstant.ROUTING_QUEUE_02})
+    @RabbitHandler
+    public void receiveMessage2(String message) {
+        System.out.println(Number04_RoutingConstant.ROUTING_QUEUE_02+message);
     }
 }

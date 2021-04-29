@@ -20,36 +20,47 @@ public class Number05_TopicsConfig {
 
     @Bean
     public TopicExchange topicExchange() {
-        return new TopicExchange(Number05_TopicsConstant.TOPIC_EXCHANGE_NAME);
+        return new TopicExchange(Number05_TopicsConstant.TOPIC_EXCHANGE);
     }
 
     @Bean
     public Queue basketBallQueue() {
-        return new Queue(Number05_TopicsConstant.BASKETBALL_TOPIC_QUEUE_NAME);
+        return new Queue(Number05_TopicsConstant.TOPIC_SPORTS_BASKETBALL);
     }
 
     @Bean
     public Queue footBallQueue() {
-        return new Queue(Number05_TopicsConstant.FOOTBALL_TOPIC_QUEUE_NAME);
+        return new Queue(Number05_TopicsConstant.TOPIC_SPORTS_FOOTBALL);
     }
 
     @Bean
-    public Queue bookQueue() {
-        return new Queue(Number05_TopicsConstant.BOOK_TOPIC_QUEUE_NAME);
+    public Queue englishBookQueue() {
+        return new Queue(Number05_TopicsConstant.TOPIC_BOOKS_ENGLISH);
     }
+
+    @Bean
+    public Queue cBookQueue() {
+        return new Queue(Number05_TopicsConstant.TOPIC_BOOKS_CHINESE);
+    }
+
 
     @Bean
     public Binding basketBallBinding() {
-        return BindingBuilder.bind(basketBallQueue()).to(topicExchange()).with(Number05_TopicsConstant.SPORTS_TOPIC);
+        return BindingBuilder.bind(basketBallQueue()).to(topicExchange()).with(Number05_TopicsConstant.TOPIC_SPORTS);
     }
 
     @Bean
     public Binding footBallBinding() {
-        return BindingBuilder.bind(footBallQueue()).to(topicExchange()).with(Number05_TopicsConstant.SPORTS_TOPIC);
+        return BindingBuilder.bind(footBallQueue()).to(topicExchange()).with(Number05_TopicsConstant.TOPIC_SPORTS);
     }
 
     @Bean
     public Binding bookBinding() {
-        return BindingBuilder.bind(bookQueue()).to(topicExchange()).with(Number05_TopicsConstant.BOOK_TOPIC);
+        return BindingBuilder.bind(englishBookQueue()).to(topicExchange()).with(Number05_TopicsConstant.TOPIC_BOOKS);
+    }
+
+    @Bean
+    public Binding bookBinding2() {
+        return BindingBuilder.bind(cBookQueue()).to(topicExchange()).with(Number05_TopicsConstant.TOPIC_BOOKS);
     }
 }

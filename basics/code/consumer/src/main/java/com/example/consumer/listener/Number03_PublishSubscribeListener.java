@@ -15,13 +15,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class Number03_PublishSubscribeListener {
 
-    @RabbitListener(queues = {Number03_PublishSubscribeConstant.FIRST_FANOUT_QUEUE_NAME})
+    @RabbitListener(queues = {Number03_PublishSubscribeConstant.PUBLISH_SUBSCRIBE_QUEUE_01})
     @RabbitHandler
     public void firstReceiveMessage(String message) {
         System.out.println("firstReceiveMessage:"+message);
     }
 
-    @RabbitListener(queues = {Number03_PublishSubscribeConstant.SECOND_FANOUT_QUEUE_NAME})
+    @RabbitListener(queues = {Number03_PublishSubscribeConstant.PUBLISH_SUBSCRIBE_QUEUE_02})
     @RabbitHandler
     public void secondReceiveMessage(String message) {
         System.out.println("secondReceiveMessage:"+message);

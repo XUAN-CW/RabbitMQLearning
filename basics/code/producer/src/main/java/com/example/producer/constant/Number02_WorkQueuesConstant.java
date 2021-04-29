@@ -8,7 +8,7 @@ package com.example.producer.constant;
  * @errors
  */
 public class Number02_WorkQueuesConstant {
-    public static final String WORK_QUEUES_EXCHANGE_NAME = "Number02_WorkQueues_exchange";
-    public static final String WORK_QUEUES_QUEUE_NAME = "Number02_WorkQueues_queue";
+    public static final String WORK_QUEUES_EXCHANGE = "edu.guet.Number02_WorkQueues.exchange";
+    public static final String WORK_QUEUES_QUEUE = "edu.guet.Number02_WorkQueues.queue";
 
 }

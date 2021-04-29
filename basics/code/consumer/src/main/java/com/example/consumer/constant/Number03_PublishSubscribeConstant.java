@@ -11,13 +11,13 @@ public class Number03_PublishSubscribeConstant {
     /**
      * 与fanout绑定的第一个队列
      */
-    public static final String FIRST_FANOUT_QUEUE_NAME = "com.xjm.mq.fanout.first";
+    public static final String PUBLISH_SUBSCRIBE_QUEUE_01 = "edu.guet.Number03_PublishSubscribe.queue01";
     /**
      * 与fanout交换机绑定的第二个队列
      */
-    public static final String SECOND_FANOUT_QUEUE_NAME = "com.xjm.mq.fanout.second";
+    public static final String PUBLISH_SUBSCRIBE_QUEUE_02 = "edu.guet.Number03_PublishSubscribe.queue02";
     /**
      * fanout 交换机
      */
-    public static final String FANOUT_EXCHANGE_NAME = "com.xjm.mq.fanout.exchange";
+    public static final String PUBLISH_SUBSCRIBE_EXCHANGE = "edu.guet.Number03_PublishSubscribe.exchange";
 }

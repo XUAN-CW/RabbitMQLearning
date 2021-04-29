@@ -14,37 +14,33 @@ class ProducerApplicationTests {
 	private RabbitTemplate rabbitTemplate;
 
 	@Test
-	public void Number01_SimpleTest(){
-		rabbitTemplate.convertAndSend(Number01_SimpleConstant.SIMPLE_EXCHANGE_NAME,"","HelloWorld");
+	public void Number01_HelloWorldTest(){
+		rabbitTemplate.convertAndSend(Number01_HelloWorldConstant.HELLO_WORLD_EXCHANGE,"","HelloWorld");
 	}
 
 	@Test
 	void Number02_WorkQueuesTest() {
 		for (int i = 0; i < 10; i++) {
-			rabbitTemplate.convertAndSend(Number02_WorkQueuesConstant.WORK_QUEUES_EXCHANGE_NAME,"", "worker 模型"+i);
+			rabbitTemplate.convertAndSend(Number02_WorkQueuesConstant.WORK_QUEUES_EXCHANGE,"", "worker 模型"+i);
 		}
 	}
 
 	@Test
 	void Number03_PublishOrSubscribeTest(){
-		rabbitTemplate.convertAndSend(Number03_PublishSubscribeConstant.FANOUT_EXCHANGE_NAME, "", "Publish/Subscribe");
+		rabbitTemplate.convertAndSend(Number03_PublishSubscribeConstant.PUBLISH_SUBSCRIBE_EXCHANGE, "", "Publish/Subscribe");
 
 	}
 
 	@Test
 	void Number04__RoutingTest(){
-		rabbitTemplate.convertAndSend(Number04_RoutingConstant.DIRECT_EXCHANGE_NAME, Number04_RoutingConstant.DIRECT_ROUTING_KEY_NAME, "DIRECT_ROUTING_KEY_NAME");
+		rabbitTemplate.convertAndSend(Number04_RoutingConstant.ROUTING_EXCHANGE, Number04_RoutingConstant.ROUTING_KEY_01, Number04_RoutingConstant.ROUTING_KEY_01);
+		rabbitTemplate.convertAndSend(Number04_RoutingConstant.ROUTING_EXCHANGE, Number04_RoutingConstant.ROUTING_KEY_02, Number04_RoutingConstant.ROUTING_KEY_02);
+
 	}
 
 	@Test
 	void Number05_TopicsTest(){
-		for (int i=0;i<5;i++){
-			rabbitTemplate.convertAndSend(Number05_TopicsConstant.TOPIC_EXCHANGE_NAME, Number05_TopicsConstant.BOOK_TOPIC, "BOOK_TOPIC"+i);
-			rabbitTemplate.convertAndSend(Number05_TopicsConstant.TOPIC_EXCHANGE_NAME, Number05_TopicsConstant.SPORTS_TOPIC, "SPORTS_TOPIC"+i);
-			rabbitTemplate.convertAndSend(Number05_TopicsConstant.TOPIC_EXCHANGE_NAME, Number05_TopicsConstant.BASKETBALL_TOPIC_QUEUE_NAME, "BASKETBALL_TOPIC_QUEUE_NAME"+i);
-			rabbitTemplate.convertAndSend(Number05_TopicsConstant.TOPIC_EXCHANGE_NAME, Number05_TopicsConstant.BOOK_TOPIC_QUEUE_NAME, "BOOK_TOPIC_QUEUE_NAME"+i);
-			rabbitTemplate.convertAndSend(Number05_TopicsConstant.TOPIC_EXCHANGE_NAME, Number05_TopicsConstant.FOOTBALL_TOPIC_QUEUE_NAME, "FOOTBALL_TOPIC_QUEUE_NAME"+i);
-
-		}
+		rabbitTemplate.convertAndSend(Number05_TopicsConstant.TOPIC_EXCHANGE, Number05_TopicsConstant.TOPIC_BOOKS, Number05_TopicsConstant.TOPIC_BOOKS);
+		rabbitTemplate.convertAndSend(Number05_TopicsConstant.TOPIC_EXCHANGE, Number05_TopicsConstant.TOPIC_SPORTS, Number05_TopicsConstant.TOPIC_BOOKS);
 	}
 }

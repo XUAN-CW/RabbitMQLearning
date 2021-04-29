@@ -1,8 +1,7 @@
 package com.example.producer.config;
 
-import com.example.producer.constant.Number01_SimpleConstant;
+import com.example.producer.constant.Number01_HelloWorldConstant;
 import org.springframework.amqp.core.*;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * RabbitMq 配置类
  */
 @Configuration
-public class Number01_SimpleConfig {
+public class Number01_HelloWorldConfig {
 
     /**
      * 1/3. 创建交换机
@@ -18,7 +17,7 @@ public class Number01_SimpleConfig {
      */
     @Bean
     public Exchange simpleExchange(){
-        return ExchangeBuilder.topicExchange(Number01_SimpleConstant.SIMPLE_EXCHANGE_NAME).build();
+        return ExchangeBuilder.topicExchange(Number01_HelloWorldConstant.HELLO_WORLD_EXCHANGE).build();
     }
 
     /**
@@ -27,7 +26,7 @@ public class Number01_SimpleConfig {
      */
     @Bean
     public Queue simpleQueue(){
-        return QueueBuilder.durable(Number01_SimpleConstant.SIMPLE_QUEUE_NAME).build();
+        return QueueBuilder.durable(Number01_HelloWorldConstant.HELLO_WORLD_QUEUE).build();
     }
 
     /**

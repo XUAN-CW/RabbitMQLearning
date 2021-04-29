@@ -20,17 +20,17 @@ public class Number03_PublishSubscribeConfig {
 
     @Bean
     public FanoutExchange fanoutExchange() {
-        return new FanoutExchange(Number03_PublishSubscribeConstant.FANOUT_EXCHANGE_NAME);
+        return new FanoutExchange(Number03_PublishSubscribeConstant.PUBLISH_SUBSCRIBE_EXCHANGE);
     }
 
     @Bean
     public Queue firstFanoutQueue() {
-        return new Queue(Number03_PublishSubscribeConstant.FIRST_FANOUT_QUEUE_NAME);
+        return new Queue(Number03_PublishSubscribeConstant.PUBLISH_SUBSCRIBE_QUEUE_01);
     }
 
     @Bean
     public Queue secondFanoutQueue() {
-        return new Queue(Number03_PublishSubscribeConstant.SECOND_FANOUT_QUEUE_NAME);
+        return new Queue(Number03_PublishSubscribeConstant.PUBLISH_SUBSCRIBE_QUEUE_02);
     }
 
     @Bean
