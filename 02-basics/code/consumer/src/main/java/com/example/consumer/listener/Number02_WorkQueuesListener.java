@@ -19,11 +19,11 @@ public class Number02_WorkQueuesListener {
     // worker 模型默认公平模型
     @RabbitListener(queuesToDeclare=@Queue(value = Number02_WorkQueuesConstant.WORK_QUEUES_QUEUE))
     private void receiveMsgWork1(String msg){
-        System.out.println("worker_1:"+msg);
+        System.out.println("02-竞争接收-消费者01:"+msg);
     }
 
     @RabbitListener(queuesToDeclare=@Queue(value = Number02_WorkQueuesConstant.WORK_QUEUES_QUEUE))
     private void receiveMsgWork2(String msg){
-        System.out.println("worker_2:"+msg);
+        System.out.println("02-竞争接收-消费者02:"+msg);
     }
 }

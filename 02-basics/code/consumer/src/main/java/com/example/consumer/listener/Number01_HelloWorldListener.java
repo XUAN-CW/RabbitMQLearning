@@ -12,7 +12,7 @@ public class Number01_HelloWorldListener {
      */
     @RabbitListener(queues = Number01_HelloWorldConstant.HELLO_WORLD_QUEUE)
     public void myListener(String message){
-        System.out.println("消费者接收到的消息为:"+message);
+        System.out.println("01-直接接收："+message);
     }
 }
 
