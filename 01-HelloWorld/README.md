@@ -23,6 +23,12 @@ sudo docker pull rabbitmq:management
 docker run -dit --name Myrabbitmq -p 15672:15672 -p 5672:5672 rabbitmq:management
 ```
 
+开机自启动 `--restart=always` ：
+
+```sh
+docker run -dit --name Myrabbitmq  --restart=always  -p 15672:15672 -p 5672:5672 rabbitmq:management
+```
+
 需要设置管理系统的用户名为 `admin`、密码为 `password` 的用下面这条：
 
 ```sh
