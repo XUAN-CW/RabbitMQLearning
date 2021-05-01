@@ -142,7 +142,7 @@ server:
 
 #### 效果
 
-- 控制台：收到了队列 **simple_queue** 里的消息 `simple`
+- 控制台：收到了队列 **simple_queue** 里的消息 `simple` 
 - 管理界面：原来 **producer** 发送到队列 **simple_queue** 的消息被消费掉了，再点击 **Get Message(s)** 会显示 **Queue is empty** 
 
 ![image-20210425140911841](image/image-20210425140911841.png)

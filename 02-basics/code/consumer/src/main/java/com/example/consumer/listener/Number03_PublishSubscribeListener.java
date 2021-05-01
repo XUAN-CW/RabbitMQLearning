@@ -18,13 +18,13 @@ public class Number03_PublishSubscribeListener {
     @RabbitListener(queues = {Number03_PublishSubscribeConstant.PUBLISH_SUBSCRIBE_QUEUE_01})
     @RabbitHandler
     public void firstReceiveMessage(String message) {
-        System.out.println("03-订阅-一发多收:"+message);
+        System.out.println("03-订阅-一发多收-01:"+message);
     }
 
     @RabbitListener(queues = {Number03_PublishSubscribeConstant.PUBLISH_SUBSCRIBE_QUEUE_02})
     @RabbitHandler
     public void secondReceiveMessage(String message) {
-        System.out.println("03-订阅-一发多收:"+message);
+        System.out.println("03-订阅-一发多收-02:"+message);
     }
 
 }

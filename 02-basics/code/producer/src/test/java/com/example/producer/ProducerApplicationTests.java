@@ -41,6 +41,6 @@ class ProducerApplicationTests {
 	@Test
 	void Number05_TopicsTest(){
 		rabbitTemplate.convertAndSend(Number05_TopicsConstant.TOPIC_EXCHANGE, Number05_TopicsConstant.TOPIC_BOOKS, Number05_TopicsConstant.TOPIC_BOOKS);
-		rabbitTemplate.convertAndSend(Number05_TopicsConstant.TOPIC_EXCHANGE, Number05_TopicsConstant.TOPIC_SPORTS, Number05_TopicsConstant.TOPIC_BOOKS);
+		rabbitTemplate.convertAndSend(Number05_TopicsConstant.TOPIC_EXCHANGE, Number05_TopicsConstant.TOPIC_SPORTS, Number05_TopicsConstant.TOPIC_SPORTS);
 	}
 }
