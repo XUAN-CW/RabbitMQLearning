@@ -46,7 +46,7 @@ docker run -dit --name Myrabbitmq -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEF
 ## 创建工程
 
 1. 创建一个 `Empty Project` 
-2. 在创建的 `Empty Project` 下用 **Spring Initializr** 创建 `producer` 、`consumer`
+2. 在创建的 `Empty Project` 下用 **Spring Initializr** 创建 `producer` 、`consumer` 
 
 ![image-20210425122912709](image/image-20210425122912709.png)
 
